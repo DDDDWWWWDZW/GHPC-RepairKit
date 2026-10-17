@@ -10,7 +10,7 @@ Appearance damage, crew casualties and ammo count are not repaired.
 ## Requirements
 
 - *Gunner, HEAT, PC!*
-- **MelonLoader 0.6.2 (net35 build)**
+- **MelonLoader
 
 ## Installation
 
