@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>RepairKit</AssemblyName>
+    <RootNamespace>RepairKit</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+    <Version>1.0.0</Version>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- 源码是 UTF-8，中文配置项字面量必须显式声明编码 -->
+    <CodePage>65001</CodePage>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GHPC_DIR Condition="'$(GHPC_DIR)' == ''">E:\SteamLibrary\steamapps\common\Gunner HEAT PC</GHPC_DIR>
+    <ManagedDir>$(GHPC_DIR)\Bin\GHPC_Data\Managed</ManagedDir>
+    <Net35Dir>$(GHPC_DIR)\Bin\MelonLoader\net35</Net35Dir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader">
+      <HintPath>$(Net35Dir)\MelonLoader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="0Harmony">
+      <HintPath>$(Net35Dir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+      <Publicize>true</Publicize>
+    </Reference>
+
+    <!-- KeyCode 通过 UnityEngine.dll 的类型转发暴露，必须显式引用 -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ManagedDir)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Rigidbody 在 PhysicsModule 里 -->
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(ManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Rewired_Core">
+      <HintPath>$(ManagedDir)\Rewired_Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

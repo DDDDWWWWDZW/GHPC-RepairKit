@@ -1,0 +1,13 @@
+# Build output (contains publicized copies of the game assembly - do not publish)
+bin/
+obj/
+
+# IDE / local settings
+.vs/
+.idea/
+*.user
+*.suo
+
+# Local packaging output
+dist/
+*.zip
